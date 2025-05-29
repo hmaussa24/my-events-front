@@ -1,13 +1,13 @@
 import Layout from "../../../shared/components/layout";
-import TableEventos from "../components/TableEventos";
+import CreateEvent from "../components/CreateEvent";
 
-export default function DashboardPage() {
+export default function CreateEventsPage() {
   return (
     <Layout user={{
       name: "",
       email: ""
     }}>
-      <TableEventos />
+      <CreateEvent/>
     </Layout>
   );
 }

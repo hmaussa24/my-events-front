@@ -22,7 +22,7 @@ export default function LoginPage() {
 
   if (loading) return <Spiner className="h-16 w-16 mx-auto" />;
   if (isAuthenticated) {
-    return <Navigate to="/dashboard" replace />;
+    return <Navigate to="/events" replace />;
   }
   
 

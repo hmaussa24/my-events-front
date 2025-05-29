@@ -23,7 +23,7 @@ const Layout: React.FC<LayoutProps> = ({ user, children }) => {
                 </Link>
               </li>
               <li>
-                <Link to="/eventos" className="block text-white no-underline hover:text-gray-300 transition">
+                <Link to="/events" className="block text-white no-underline hover:text-gray-300 transition">
                   Eventos
                 </Link>
               </li>

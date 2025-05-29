@@ -43,7 +43,7 @@ const InicioPage = () => {
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-bold text-gray-900">Próximos eventos</h2>
           <div>
-            <a href="/eventos" className="px-5 py-2 bg-gray-100 text-gray-900 rounded-md no-underline font-semibold border border-gray-200 transition hover:bg-gray-200">
+            <a href="/events" className="px-5 py-2 bg-gray-100 text-gray-900 rounded-md no-underline font-semibold border border-gray-200 transition hover:bg-gray-200">
               Ver todos los eventos
             </a>
           </div>
