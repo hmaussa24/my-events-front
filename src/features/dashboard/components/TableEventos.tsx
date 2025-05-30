@@ -92,8 +92,9 @@ const TableEventos: React.FC = () => {
               <div>{evento.event_date}</div>
               <div className="truncate" title={evento.location}>{evento.location}</div>
               <div className="truncate" title={evento.description}>{evento.description}</div>
-              <div className="flex justify-end">
+              <div className="flex justify-end gap-2">
                 <button onClick={() => setSelected(evento)} className="text-blue-600 hover:underline">Ver</button>
+                <button onClick={() => navigate(`/sessions/${evento.id}`)} className="text-blue-600 hover:underline">Sessiones</button>
               </div>
             </div>
           ))

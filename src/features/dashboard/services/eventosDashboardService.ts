@@ -9,8 +9,22 @@ export interface CreateEventParams {
   status: string;
 }
 
-export async function createEvent(params: CreateEventParams) {
-  const res = await api.post("/event", params);
+export async function createEvent(params: CreateEventParams, image?: File) {
+  const formData = new FormData();
+  formData.append("name", params.name);
+  formData.append("description", params.description);
+  formData.append("event_date", params.event_date);
+  formData.append("location", params.location);
+  formData.append("capacity", String(params.capacity));
+  formData.append("status", params.status);
+  if (image) {
+    formData.append("image", image);
+  }
+  const res = await api.post("/event", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
   return res.data;
 }
 

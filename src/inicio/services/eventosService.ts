@@ -6,6 +6,7 @@ export interface Evento {
   event_date: string;
   location: string;
   description: string;
+  image_url?: string;
 }
 
 export async function getEventos(limit = 10, skip = 0): Promise<Evento[]> {

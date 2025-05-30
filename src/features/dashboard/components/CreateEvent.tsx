@@ -15,6 +15,7 @@ const CreateEvent: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const [image, setImage] = useState<File | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -27,7 +28,7 @@ const CreateEvent: React.FC = () => {
     setError("");
     setSuccess("");
     try {
-      await createEvent(form);
+      await createEvent(form, image ?? undefined);
       setSuccess("Evento creado exitosamente");
       setForm(initialState);
     } catch (err) {
@@ -67,6 +68,20 @@ const CreateEvent: React.FC = () => {
             <option value="draft">Borrador</option>
             <option value="published">Publicado</option>
           </select>
+        </div>
+        <div>
+          <label className="block font-semibold mb-1">Imagen</label>
+          <input
+            type="file"
+            onChange={(e) => {
+              if (e.target.files && e.target.files.length > 0) {
+                setImage(e.target.files[0]);
+              } else {
+                setImage(null);
+              }
+            }}
+            className="w-full border rounded px-3 py-2"
+          />
         </div>
         <button type="submit" disabled={loading} className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition">
           {loading ? "Creando..." : "Crear evento"}
