@@ -1,7 +1,7 @@
 import Layout from "../../../shared/components/layout";
 import CreateEvent from "../components/CreateEvent";
 
-export default function CreateEventsPage() {
+const CreateEventsPage = () => {
   return (
     <Layout user={{
       name: "",
@@ -11,3 +11,5 @@ export default function CreateEventsPage() {
     </Layout>
   );
 }
+
+export default CreateEventsPage;

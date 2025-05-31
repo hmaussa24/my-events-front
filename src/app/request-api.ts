@@ -14,7 +14,6 @@ api.interceptors.response.use(
 
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
-
       try {
         await api.post("/login/refresh-token", {}, {
           withCredentials: true,
@@ -22,6 +21,8 @@ api.interceptors.response.use(
         return api(originalRequest);
       } catch (_error) {
         store.dispatch(logout());
+        console.error("Session expired, redirecting to login.");
+        window.location.href = "/login";
         return Promise.reject(_error);
       }
     }

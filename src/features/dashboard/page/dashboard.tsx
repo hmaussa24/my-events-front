@@ -1,7 +1,7 @@
 import Layout from "../../../shared/components/layout";
 import TableEventos from "../components/TableEventos";
 
-export default function DashboardPage() {
+const DashboardPage = () => {
   return (
     <Layout user={{
       name: "",
@@ -11,3 +11,5 @@ export default function DashboardPage() {
     </Layout>
   );
 }
+
+export default DashboardPage;

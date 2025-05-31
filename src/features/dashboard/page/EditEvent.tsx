@@ -2,7 +2,7 @@ import Layout from "../../../shared/components/layout";
 import EditEvent from "../components/EditEvent";
 import { useNavigate } from "react-router-dom";
 
-export default function EditEventsPage() {
+const EditEventsPage = () => {
     const navigate = useNavigate();
   return (
     <Layout user={{
@@ -13,3 +13,5 @@ export default function EditEventsPage() {
     </Layout>
   );
 }
+
+export default EditEventsPage;

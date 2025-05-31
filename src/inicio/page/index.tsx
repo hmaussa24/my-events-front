@@ -3,7 +3,6 @@ import { getEventos, Evento } from "../services/eventosService";
 import { buscarEventos } from "../services/buscarEventosService";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
-import Spiner from "../../shared/components/Spiner";
 import { Link } from "react-router-dom";
 import BuscadorEventos from "../components/BuscadorEventos";
 import ListaEventos from "../components/ListaEventos";

@@ -1,4 +1,3 @@
-import axios from "axios";
 import api from "../../app/request-api";
 
 export interface RegistrationResponse {

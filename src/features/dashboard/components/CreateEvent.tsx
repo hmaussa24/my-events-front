@@ -81,6 +81,9 @@ const CreateEvent: React.FC = () => {
               }
             }}
             className="w-full border rounded px-3 py-2"
+            accept="image/*"
+            required
+            title="Selecciona una imagen para el evento"
           />
         </div>
         <button type="submit" disabled={loading} className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition">

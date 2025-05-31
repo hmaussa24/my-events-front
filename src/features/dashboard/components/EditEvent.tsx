@@ -79,6 +79,8 @@ const EditEvent: React.FC<EditEventProps> = ({ onSave, onCancel }) => {
           <select name="status" value={form.status} onChange={handleChange} className="w-full border rounded px-3 py-2">
             <option value="draft">Borrador</option>
             <option value="published">Publicado</option>
+            <option value="cancelled">Cancelado</option>
+            <option value="completed">Completado</option>
           </select>
         </div>
         <div className="flex gap-2">

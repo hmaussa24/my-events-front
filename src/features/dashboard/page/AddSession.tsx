@@ -1,7 +1,7 @@
 import Layout from "../../../shared/components/layout";
 import Sessions from "../components/AddSession";
 
-export default function SessionPage() {
+const SessionPage = () => {
   return (
     <Layout user={{
       name: "",
@@ -11,3 +11,5 @@ export default function SessionPage() {
     </Layout>
   );
 }
+
+export default SessionPage;
