@@ -91,7 +91,7 @@ const InicioPage = () => {
             </Link>
           </div>
         </div>}
-        <ListaEventos eventos={eventos} loading={loadingEvents} error={error} />
+        <ListaEventos eventos={eventos} loading={loadingEvents} error={error} isAuthenticated={isAuthenticated} />
       </main>
     </div>
   );

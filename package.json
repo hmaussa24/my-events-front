@@ -54,6 +54,7 @@
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.8",
     "autoprefixer": "^10.4.21",
+    "javascript-obfuscator": "^4.1.1",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17"
   }
