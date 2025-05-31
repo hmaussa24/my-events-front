@@ -10,6 +10,6 @@ export interface Evento {
 }
 
 export async function getEventos(limit = 10, skip = 0): Promise<Evento[]> {
-  const res = await api.get(`/events?limit=${limit}&skip=${skip}`);
+  const res = await api.get(`/events/all?limit=${limit}&skip=${skip}`);
   return res.data;
 }

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { getEventos, Evento } from "../../../inicio/services/eventosService";
+import React, { useEffect, useState, lazy } from "react";
+import { Evento } from "../../../inicio/services/eventosService";
 import { Link, useNavigate } from "react-router-dom";
-import ViewEvent from "./ViewEvent";
-import { deleteEvent } from "../services/eventosDashboardService";
+import { deleteEvent, getEventosByUser } from "../services/eventosDashboardService";
+const ViewEvent = lazy(() => import("./ViewEvent"));
+
 
 const PAGE_SIZE = 10;
 
@@ -18,7 +19,7 @@ const TableEventos: React.FC = () => {
   useEffect(() => {
     setLoading(true);
     setError(null);
-    getEventos(PAGE_SIZE, page * PAGE_SIZE)
+    getEventosByUser(PAGE_SIZE, page * PAGE_SIZE)
       .then(data => {
         setEventos(data);
       })

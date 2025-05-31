@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getEventById, updateEvent } from "../services/eventosDashboardService";
+import Spiner from "../../../shared/components/Spiner";
 
 interface EditEventProps {
   onSave?: (data: any) => void;
@@ -45,7 +46,7 @@ const EditEvent: React.FC<EditEventProps> = ({ onSave, onCancel }) => {
     }
   };
 
-  if (loading) return <div className="text-center text-gray-500 py-8">Cargando evento...</div>;
+  if (loading) return <Spiner />;
   if (error) return <div className="text-center text-red-500 py-8">{error}</div>;
   if (!form) return null;
 

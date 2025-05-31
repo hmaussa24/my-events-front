@@ -7,6 +7,8 @@ import Spiner from "../../shared/components/Spiner";
 import { Link } from "react-router-dom";
 import BuscadorEventos from "../components/BuscadorEventos";
 import ListaEventos from "../components/ListaEventos";
+import ModalRegistro from "../components/ModalRegistro";
+import { registerUser } from "../services/registerUserService";
 
 const user = {
   name: "Invitado",
@@ -14,11 +16,12 @@ const user = {
 };
 
 const InicioPage = () => {
-  const { loading, isAuthenticated } = useSelector((state: RootState) => state.auth);
+  const {isAuthenticated } = useSelector((state: RootState) => state.auth);
   const [eventos, setEventos] = useState<Evento[]>([]);
   const [loadingEvents, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [busqueda, setBusqueda] = useState("");
+  const [showRegistro, setShowRegistro] = useState(false);
 
   const fetchEventos = async (nombre?: string) => {
     setLoading(true);
@@ -47,9 +50,13 @@ const InicioPage = () => {
     fetchEventos(valor);
   };
 
+  const handleRegister = async (email: string, password: string) => {
+    await registerUser({ email, password });
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="flex justify-between items-center px-8 py-6 bg-white border-b border-gray-200 shadow-sm">
+      <header className="flex justify-between items-center px-8 py-6 bg-white border-b border-gray-200 shadow-sm relative">
         <h1 className="text-2xl font-bold text-gray-900">myEvents</h1>
         <div className="text-right">
             {isAuthenticated ? (
@@ -58,9 +65,19 @@ const InicioPage = () => {
                 <span className="text-sm text-gray-500">{user.email}</span>
                 </div>
             ) : (
-            <a href="/login" className="mr-4 px-5 py-2 bg-gray-900 text-white rounded-md no-underline font-semibold transition hover:bg-gray-800">
-              Iniciar sesión
-            </a>
+            <div className="flex items-center space-x-4 relative">
+                <a href="/login" className="mr-4 px-5 py-2 bg-gray-900 text-white rounded-md no-underline font-semibold transition hover:bg-gray-800">
+                  Iniciar sesión
+                </a>
+                <button
+                  type="button"
+                  className="mr-4 px-5 py-2 bg-gray-900 text-white rounded-md no-underline font-semibold transition hover:bg-gray-800"
+                  onClick={() => setShowRegistro((v) => !v)}
+                >
+                  Registrarse
+                </button>
+                <ModalRegistro open={showRegistro} onClose={() => setShowRegistro(false)} onRegister={handleRegister} />
+            </div>
             )}
         </div>
       </header>
