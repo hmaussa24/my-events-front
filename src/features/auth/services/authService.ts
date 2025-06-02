@@ -1,5 +1,4 @@
 import axios from "axios";
-import api from "../../../app/request-api";
 
 export const loginApi = async (data: { username: string; password: string }) => {
   return axios.post("http://localhost:8000/api/v1/login/access-token", data, {
