@@ -72,3 +72,14 @@ Para levantar el proyecto usando Docker y Nginx:
 ### 4. Docker y despliegue
 - **Dockerfile:** El proyecto se construye en una imagen Node, luego se sirve en producción con Nginx escuchando en el puerto 3000.
 - **nginx.conf:** Configuración personalizada para servir la app React y soportar rutas del frontend.
+
+## Rutas principales de la aplicación
+
+- `/` — Página de inicio (listado y búsqueda de eventos, registro/login)
+- `/login` — Página de inicio de sesión
+- `/events` — Dashboard de eventos (privada, requiere autenticación)
+- `/create-events` — Crear nuevo evento (privada)
+- `/:eventId/edit-events` — Editar evento (privada)
+- `/sessions/:eventId` — Gestión de sesiones de un evento (privada)
+
+Las rutas protegidas requieren que el usuario esté autenticado. Si no lo está, será redirigido a `/login`.
