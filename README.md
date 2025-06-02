@@ -44,3 +44,23 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Docker
+
+Para levantar el proyecto en producción usando Docker y Nginx:
+
+1. Construye la imagen:
+
+   ```sh
+   docker build -t my-events-front .
+   ```
+
+2. Ejecuta el contenedor exponiendo el puerto 3000:
+
+   ```sh
+   docker run -p 3000:3000 my-events-front
+   ```
+
+3. Accede a la aplicación en tu navegador en [http://localhost:3000](http://localhost:3000)
+
+> El contenedor usa Nginx y sirve la app desde `/usr/share/nginx/html`. Puedes personalizar el archivo `nginx.conf` si necesitas cambiar la configuración del servidor.
